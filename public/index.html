@@ -8,6 +8,18 @@
     <script src='/socket.io/socket.io.js'></script>
     <title>Real Time with Colors</title>
 </head>
+<style>
+    *{
+        text-align: center;
+    }
+
+    button{
+        height: 50px;
+        width:100px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+</style>
 <script>
     $(document).ready(function(){
         var socket = io();
@@ -20,8 +32,8 @@
 });
 </script>
 <body>
-    <button data-color="red">Red</button>
-    <button data-color="blue">Blue</button>
-    <button data-color="yellow">Yellow</button>
+    <p><button data-color="red">Red</button></p>
+    <p><button data-color="blue">Blue</button></p>
+    <p><button data-color="yellow">Yellow</button></p>
 </body>
 </html>
