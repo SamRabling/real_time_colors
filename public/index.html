@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='/socket.io/socket.io.js'></script>
+    <title>Real Time with Colors</title>
+</head>
+<script>
+    $(document).ready(function(){
+        var socket = io();
+        socket.on('colour', function(data){
+        $('body').css("background-color", data.color)
+    });
+    $('button').click(function(){
+        socket.emit("button_clicked", {color: $(this).attr('data-color')});
+    });
+});
+</script>
+<body>
+    <button data-color="red">Red</button>
+    <button data-color="blue">Blue</button>
+    <button data-color="yellow">Yellow</button>
+</body>
+</html>
